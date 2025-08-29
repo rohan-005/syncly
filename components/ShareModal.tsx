@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog"
+} from "@/components/ui/dialog"
 
 
 import { useSelf } from '@liveblocks/react/suspense';
@@ -45,7 +45,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <Button className="bg-gradient-to-t from-blue-500 to-blue-400 flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
+        <Button className="gradient-blue flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
           <Image
             src="/assets/icons/share.svg"
             alt="share"
@@ -58,7 +58,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           </p>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" w-full max-w-[400px] rounded-xl border-none bg-doc bg-cover px-5 py-7 shadow-xl sm:min-w-[500px]">
+      <DialogContent className="shad-dialog">
         <DialogHeader>
           <DialogTitle>Manage who can view this project</DialogTitle>
           <DialogDescription>Select which users can view and edit this document</DialogDescription>
@@ -74,14 +74,14 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="shareh-11 flex-1 border-none bg-dark-400 focus-visible:ring-0 focus-visible:ring-offset-0-input"
+              className="share-input"
             />
             <UserTypeSelector 
               userType={userType}
               setUserType={setUserType}
             />
           </div>
-          <Button type="submit" onClick={shareDocumentHandler} className="bg-gradient-to-t from-blue-500 to-blue-400 flex h-full gap-1 px-5" disabled={loading}>
+          <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
             {loading ? 'Sending...' : 'Invite'}
           </Button>
         </div>

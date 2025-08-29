@@ -4,7 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select"
+} from "@/components/ui/select"
 
 const UserTypeSelector = ({ userType, setUserType, onClickHandler }: UserTypeSelectorParams) => {
   const accessChangeHandler = (type: UserType) => {
@@ -14,12 +14,12 @@ const UserTypeSelector = ({ userType, setUserType, onClickHandler }: UserTypeSel
 
   return (
     <Select value={userType} onValueChange={(type: UserType) => accessChangeHandler(type)}>
-      <SelectTrigger className="w-fit border-none bg-transparent text-blue-100">
+      <SelectTrigger className="shad-select">
         <SelectValue />
       </SelectTrigger>
       <SelectContent className="border-none bg-dark-200">
-        <SelectItem value="viewer" className="cursor-pointer bg-dark-200 text-blue-100 focus:bg-dark-300 hover:bg-dark-300 focus:text-blue-100">can view</SelectItem>
-        <SelectItem value="editor" className="cursor-pointer bg-dark-200 text-blue-100 focus:bg-dark-300 hover:bg-dark-300 focus:text-blue-100">can edit</SelectItem>
+        <SelectItem value="viewer" className="shad-select-item">can view</SelectItem>
+        <SelectItem value="editor" className="shad-select-item">can edit</SelectItem>
       </SelectContent>
     </Select>
   )
